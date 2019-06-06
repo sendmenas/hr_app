@@ -1,0 +1,14 @@
+{
+    "data": [
+        {
+            "name": "John Wick",
+            "bod": "1983-10-20",
+            "hired": false
+        },
+        {
+            "name": "John McLane",
+            "bod": "1982-07-05",
+            "hired": false
+        }
+    ]
+}
