@@ -15,16 +15,17 @@ class App extends React.Component {
   }
 
   componentWillMount() {
-    const candidates = data.data;
-    this.setState(candidates)
-    console.log(candidates)
-    console.log(this.state)
+    this.setState({
+			candidates: data.data
+		})
   }
 
   handleCheck(id, val) {
     const candidates = this.state.candidates.slice()
     candidates[id].hired = val;
-    this.setState(candidates);
+    this.setState({
+			candidates
+		});
   }
 
   render () {

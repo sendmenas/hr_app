@@ -12,7 +12,7 @@ function DataList(props) {
                 <dt>BOD:</dt>
                 <dd>{props.data.bod}</dd>
             </dl>
-            <label for="hired">Hired:</label>
+            <label htmlFor="hired">Hired:</label>
             <input
                 id="hired"
                 type="checkbox"
