@@ -1,0 +1,11 @@
+.switch {
+	align-self: center;
+
+	&.switch--left {
+		margin-right: auto;
+	}
+
+	&.switch--right {
+		margin-left: auto;
+	}
+}
