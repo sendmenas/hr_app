@@ -1,6 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 import data from './data.json'
 
 import ProfileData from './components/ProfileData'
@@ -53,7 +52,7 @@ class App extends React.Component {
 		const index = this.state.index
     return (
       <main>
-        <section>
+        <section class="app">
 					<Switch direction={"left"} clickHandler={evt => this.showPreviousCandidate(evt.target)} />
 					<ProfileData
             data={candidates[index]}
