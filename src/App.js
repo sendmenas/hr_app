@@ -1,68 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.scss';
 import data from './data.json'
 
 import ProfileData from './components/ProfileData'
 import Switch from './components/Switch'
 
-class App extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      candidates: [],
-			index: 0
-    }
+const App = () => {
+  const [candidates, setCandidates] = useState(data.data)
+	const [index, setIndex] = useState(0)
+
+  const handleCheck = (id, val) => {
+    const updatedCandidates = candidates.slice()
+    console.log(updatedCandidates)
+    updatedCandidates[id].hired = val
+    setCandidates(updatedCandidates)
   }
 
-  componentWillMount() {
-    this.setState({
-			candidates: data.data
-		})
-  }
-
-  handleCheck(id, val) {
-    const candidates = this.state.candidates.slice()
-    candidates[id].hired = val;
-    this.setState({
-			candidates
-		})
-  }
-
-	showNextCandidate(button) {
-		let index = this.state.index
-		const count = this.state.candidates.length - 1
+	const showNextCandidate = () => {
+		const count = candidates.length - 1
 		if (index < count) {
-			this.setState({
-				index: ++index
-			})
+			setIndex(index + 1)
 		}
 	}
 
-	showPreviousCandidate(button) {
-		let index = this.state.index
+	const showPreviousCandidate = () => {
 		if (index !== 0) {
-			this.setState({
-				index: --index
-			})
+			setIndex(index - 1)
 		}
 	}
 
-  render () {
-		const candidates = this.state.candidates
-		const index = this.state.index
-    return (
-      <main>
-        <section class="app">
-					<Switch direction={"left"} clickHandler={evt => this.showPreviousCandidate(evt.target)} />
-					<ProfileData
-            data={candidates[index]}
-            handleCheck={evt => this.handleCheck(index, evt.target.checked)}
-          />
-					<Switch direction={"right"} clickHandler={evt => this.showNextCandidate(evt.target)} />
-        </section>
-      </main>
-    )
-  }
+  return (
+    <main>
+      <section className="app">
+        <Switch direction={"left"} clickHandler={() => showPreviousCandidate()} />
+        <ProfileData
+          data={candidates[index]}
+          handleCheck={evt => handleCheck(index, evt.target.checked)}
+        />
+        <Switch direction={"right"} clickHandler={() => showNextCandidate()} />
+      </section>
+    </main>
+  )
 }
 
 export default App
