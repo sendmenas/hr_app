@@ -18,12 +18,14 @@ const App = () => {
 
 	const showNextCandidate = () => {
 		const count = candidates.length - 1
+		console.log(candidates)
 		if (index < count) {
 			setIndex(index + 1)
 		}
 	}
 
 	const showPreviousCandidate = () => {
+		console.log(candidates)
 		if (index !== 0) {
 			setIndex(index - 1)
 		}

@@ -2,7 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './ProfileData.scss'
 
-const ProfileData = ({ data, handleCheck }) => (
+const ProfileData = ({ data, handleCheck }) => {
+	console.log(data)
+	return (
 	<section>
 			<picture className="picture">
 					<img src="" alt="" />
@@ -22,13 +24,14 @@ const ProfileData = ({ data, handleCheck }) => (
 							className="list__row__data"
 							id="hired"
 							type="checkbox"
-							selected={data.hired}
-							onInput={handleCheck}
+							checked={data.hired}
+							onChange={handleCheck}
 						/>
 					</li>
 			</ul>
 	</section>
 )
+	}
 
 ProfileData.propTypes = {
 	data: PropTypes.shape({
