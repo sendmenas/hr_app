@@ -4,6 +4,8 @@ import data from './data.json'
 
 import ProfileData from './components/ProfileData'
 import Switch from './components/Switch'
+import { SWITCH_SIDES } from './components/constants'
+
 
 const App = () => {
   const [candidates, setCandidates] = useState(data.data)
@@ -18,14 +20,12 @@ const App = () => {
 
 	const showNextCandidate = () => {
 		const count = candidates.length - 1
-		console.log(candidates)
 		if (index < count) {
 			setIndex(index + 1)
 		}
 	}
 
 	const showPreviousCandidate = () => {
-		console.log(candidates)
 		if (index !== 0) {
 			setIndex(index - 1)
 		}
@@ -34,12 +34,20 @@ const App = () => {
   return (
     <main>
       <section className="app">
-        <Switch direction={"left"} clickHandler={() => showPreviousCandidate()} />
+				<Switch
+					direction={SWITCH_SIDES.left}
+					clickHandler={() => showPreviousCandidate()}
+					disabled={index === 0}
+				/>
         <ProfileData
           data={candidates[index]}
           handleCheck={evt => handleCheck(index, evt.target.checked)}
         />
-        <Switch direction={"right"} clickHandler={() => showNextCandidate()} />
+        <Switch
+					direction={SWITCH_SIDES.right}
+					clickHandler={() => showNextCandidate()}
+					disabled={index === candidates.length - 1}
+				/>
       </section>
     </main>
   )
