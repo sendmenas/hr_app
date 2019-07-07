@@ -4,7 +4,7 @@ import data from './data.json'
 
 import ProfileData from './components/ProfileData'
 import Switch from './components/Switch'
-import { SWITCH_SIDES } from './components/constants'
+import { SWITCH_SIDES } from './utils/constants'
 
 
 const App = () => {
@@ -13,7 +13,6 @@ const App = () => {
 
   const handleCheck = (id, val) => {
     const updatedCandidates = candidates.slice()
-    console.log(updatedCandidates)
     updatedCandidates[id].hired = val
     setCandidates(updatedCandidates)
   }

@@ -7,16 +7,16 @@ const ProfileData = ({ data, handleCheck }) => {
 	return (
 	<section>
 			<picture className="picture">
-					<img src="" alt="" />
+					<img src={data.avatar} alt="avatar" />
 			</picture>
 				<ul className="list">
 					<li className="list__row">
 						<div className="list__row__title">Name:</div>
-						<div className="list__row__data">{data.name}</div>
+						<div className="list__row__data">{data.name} {data.surname}</div>
 					</li>
 					<li className="list__row">
 						<div className="list__row__title">BOD:</div>
-						<div className="list__row__data">{data.bod}</div>
+						<div className="list__row__data">{data.dob}</div>
 					</li>
 					<li className="list__row">
 						<label className="list__row__title" htmlFor="hired">Hired:</label>
@@ -36,7 +36,7 @@ const ProfileData = ({ data, handleCheck }) => {
 ProfileData.propTypes = {
 	data: PropTypes.shape({
 		name: PropTypes.string.isRequired,
-		bod: PropTypes.string.isRequired,
+		dob: PropTypes.string.isRequired,
 		hired: PropTypes.bool.isRequired
 	}),
 	handleCheck: PropTypes.func.isRequired

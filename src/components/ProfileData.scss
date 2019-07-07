@@ -1,3 +1,18 @@
+.picture {
+	border-radius: 25px;
+	display: flex;
+	flex-shrink: 0;
+	height: 350px;
+	overflow: hidden;
+	width: 230px;
+
+	img {
+		object-fit: contain;
+		height: 100%;
+		width: 100%;
+	}
+}
+
 .list {
 	margin: 0;
 	list-style: none;
