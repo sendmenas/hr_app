@@ -1,4 +1,9 @@
+main, .app {
+	height: 100%;
+}
+
 .app {
+	align-items: center;
 	display: flex;
 	justify-content: center
 }

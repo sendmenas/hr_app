@@ -1,13 +1,20 @@
+.profile-data {
+	z-index: 1;
+}
+
 .picture {
+	background: var(--yellow);
 	border-radius: 25px;
+	border: 7px solid var(--yellow);
 	display: flex;
 	flex-shrink: 0;
 	height: 350px;
 	overflow: hidden;
 	width: 230px;
+	z-index: 2;
 
 	img {
-		object-fit: contain;
+		object-fit: cover;
 		height: 100%;
 		width: 100%;
 	}
@@ -20,6 +27,18 @@
 
 	.list__row {
 		display: flex;
+		font-size: 20px;
 		justify-content: center;
+
+		.list__row__checkbox {
+			align-self: center;
+			height: 18px;
+			margin: 0 0 0 10px;
+			width: 18px;
+		}
 	}
+}
+
+.label {
+	color: var(--yellow);
 }
