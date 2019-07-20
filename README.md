@@ -1,4 +1,4 @@
-# reate an HR recruitment SPA that shows candidates
+# Create an HR recruitment SPA that shows candidates
 ## Create React SPA
 ## Mock-up API fetching of candidates
 ## Add a photo, name, DOB, and a "Hired" checkbox as profile data
