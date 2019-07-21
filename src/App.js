@@ -1,17 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.scss';
 import data from './data.json'
 
 import ProfileData from './components/ProfileData'
 import Switch from './components/Switch'
-import { SWITCH_SIDES } from './utils/constants'
+import { SWITCH_SIDES, saveToLocalStorage, checkStorage } from './utils'
 
 
 const App = () => {
   const [candidates, setCandidates] = useState(data.data)
 	const [index, setIndex] = useState(0)
 
-  const handleCheck = (id, val) => {
+	useEffect(() => {
+		setIndex(parseInt(checkStorage()));
+	}, []);
+
+	const handleCheck = (id, val) => {
     const updatedCandidates = candidates.slice()
     updatedCandidates[id].hired = val
     setCandidates(updatedCandidates)
@@ -20,13 +24,15 @@ const App = () => {
 	const showNextCandidate = () => {
 		const count = candidates.length - 1
 		if (index < count) {
-			setIndex(index + 1)
+			setIndex(index + 1);
+			saveToLocalStorage(index + 1);
 		}
 	}
 
 	const showPreviousCandidate = () => {
 		if (index !== 0) {
-			setIndex(index - 1)
+			setIndex(index - 1);
+			saveToLocalStorage(index - 1);
 		}
 	}
 

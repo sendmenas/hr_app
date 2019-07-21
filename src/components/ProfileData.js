@@ -9,9 +9,10 @@ const ProfileData = ({ data, handleCheck }) => {
 					<img src={data.avatar} alt="avatar" />
 			</picture>
 				<ul className="list">
-					<li className="list__row">Name: {data.name} {data.surname}</li>
-					<li className="list__row">BOD: {data.dob}</li>
-					<li className="list__row">Hired:
+				<li className="list__row"><span className="label">Name:</span>{data.name} {data.surname}</li>
+				<li className="list__row"><span className="label">DOB:</span>{data.dob}</li>
+					<li className="list__row">
+					<span className="label">Hired:</span>
 						<input
 							className="list__row__checkbox"
 							id="hired"
