@@ -1,7 +1,8 @@
 {
   "name": "hr_recruitment_spa",
   "version": "0.1.0",
-  "private": true,
+	"private": true,
+	"proxy": "http://localhost:5000/",
   "dependencies": {
     "node-sass": "^4.12.0",
     "react": "^16.8.6",
@@ -9,10 +10,12 @@
     "react-scripts": "3.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+		"start": "react-scripts start",
+		"build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+		"eject": "react-scripts eject",
+		"server": "node server.js",
+		"dev": "concurrently --kill-others-on-fail \"node server\" \"npm start\""
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -28,5 +31,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+	}
 }
