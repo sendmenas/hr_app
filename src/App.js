@@ -3,22 +3,25 @@ import './App.scss';
 
 import ProfileData from './components/ProfileData'
 import Switch from './components/Switch'
+import Loader from './components/Loader'
 import { SWITCH_SIDES, saveToLocalStorage, checkStorage, requestData } from './utils'
 
 
 const App = () => {
   const [candidates, setCandidates] = useState([])
 	const [index, setIndex] = useState(0)
+	const [isLoading, setLoadingStatus] = useState(true)
 
 	useEffect(() => {
 		async function fetchData() {
 			const { data } = await requestData()
 			setCandidates(data)
 			setIndex(parseInt(checkStorage()))
+			setLoadingStatus(false);
 		}
 
 		fetchData()
-	}, []);
+	});
 
 	const handleCheck = (id, val) => {
     const updatedCandidates = candidates.slice()
@@ -44,7 +47,7 @@ const App = () => {
   return (
     <main>
       <section className="app">
-				{candidates.length > 0 &&
+				{!isLoading && candidates.length > 0 &&
 					<>
 						<Switch
 							direction={SWITCH_SIDES.left}
@@ -61,6 +64,9 @@ const App = () => {
 							disabled={index === candidates.length - 1}
 						/>
 					</>
+				}
+				{isLoading && 
+					<Loader />
 				}
       </section>
     </main>

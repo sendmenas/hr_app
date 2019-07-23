@@ -10,13 +10,27 @@
 	flex-shrink: 0;
 	height: 350px;
 	overflow: hidden;
+	position: relative;
 	width: 230px;
 	z-index: 2;
 
-	img {
-		object-fit: cover;
+	.picture__loader {
+		align-items: center;
+		background-color: grey;
+		display: flex;
+		height: 100%;
+		justify-content: center;
+		position: absolute;
+		width: 100%;
+	}
+
+	img, picture {
 		height: 100%;
 		width: 100%;
+	}
+
+	img {
+		object-fit: cover;
 	}
 }
 
